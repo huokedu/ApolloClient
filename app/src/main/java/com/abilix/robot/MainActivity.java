@@ -29,6 +29,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class MainActivity extends Activity {
 
@@ -102,9 +103,14 @@ public class MainActivity extends Activity {
     }
 
     @OnClick(R.id.img_run)
-    public void finishAll() {
-//        finish();
+    public void listen() {
         vttBinder.listenStart();
+    }
+
+    @OnLongClick(R.id.img_run)
+    public boolean finishAll() {
+        finish();
+        return true;
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
